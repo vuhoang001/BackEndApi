@@ -10,5 +10,7 @@ public class MappingProfile : Profile
         CreateMap<DTO.Request.Product_Create, Product>();
 
         CreateMap<DTO.Request.Categories_Create, Categories>();
+
+        CreateMap<DTO.Request.Review_create, Reviews>();
     }
 }

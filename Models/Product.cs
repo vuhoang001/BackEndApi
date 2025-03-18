@@ -20,6 +20,8 @@ public class Product
     [Range(1, 5)] public int Rating { get; set; }
 
     public List<ProductCategory> ProductCategories { get; set; } = new();
+
+    public List<Reviews> Reviews { get; set; }
 }
 
 public class ProductCategory
@@ -32,7 +34,8 @@ public class ProductCategory
 }
 
 public class ProductDatabaseConfiguration : IEntityTypeConfiguration<Product>, IEntityTypeConfiguration<Categories>,
-    IEntityTypeConfiguration<ProductCategory>
+    IEntityTypeConfiguration<ProductCategory>, IEntityTypeConfiguration<Reviews>
+
 {
     public void Configure(EntityTypeBuilder<Product> ent)
     {
@@ -46,6 +49,7 @@ public class ProductDatabaseConfiguration : IEntityTypeConfiguration<Product>, I
         ent.HasIndex(x => x.Id).IsUnique();
     }
 
+
     public void Configure(EntityTypeBuilder<ProductCategory> ent)
     {
         ent.HasKey(x => new { x.ProductId, x.CategoryId });
@@ -58,6 +62,16 @@ public class ProductDatabaseConfiguration : IEntityTypeConfiguration<Product>, I
         ent.HasOne(pc => pc.Category)
             .WithMany()
             .HasForeignKey(pc => pc.CategoryId)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
+
+    public void Configure(EntityTypeBuilder<Reviews> builder)
+    {
+        builder.HasKey(x => x.Id);
+        
+        builder.HasOne(r => r.Product)
+            .WithMany(p => p.Reviews)
+            .HasForeignKey(r => r.productId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

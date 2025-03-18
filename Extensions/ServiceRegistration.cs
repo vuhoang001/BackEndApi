@@ -1,6 +1,7 @@
 ﻿using BackEndApi.Data;
 using BackEndApi.Services;
 using BackEndApi.Services.Categories;
+using BackEndApi.Services.Review;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,5 +20,6 @@ public static class ServiceRegistration
         services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<ICategoriesService, CategoriesService>();
+        services.AddScoped<IReviewService, ReviewService>();
     }
 }

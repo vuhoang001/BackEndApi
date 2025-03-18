@@ -175,3 +175,4 @@ C:\Users\foxai\RiderProjects\BackEndApi\BackEndApi\bin\Debug\net8.0\runtimes\win
 C:\Users\foxai\RiderProjects\BackEndApi\BackEndApi\bin\Debug\net8.0\Gridify.dll
 C:\Users\foxai\RiderProjects\BackEndApi\BackEndApi\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\foxai\RiderProjects\BackEndApi\BackEndApi\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\foxai\RiderProjects\BackEndApi\BackEndApi\obj\Debug\net8.0\BackEndApi.sourcelink.json

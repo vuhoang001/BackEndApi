@@ -26,6 +26,7 @@ public class ProductService : IProductService
             
             .Include(p => p.ProductCategories) // ✅ Bao gồm bảng trung gian
             .ThenInclude(pc => pc.Category)    // ✅ Bao gồm `Categories`
+            .Include(p => p.Reviews)
             .ApplyFiltering(paramQuery)
             .AsNoTracking()
             .AsQueryable();
